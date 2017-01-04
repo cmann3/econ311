@@ -1,0 +1,26 @@
+Package: recon
+Type: Package
+Title: Useful Functions for Economists
+Version: 0.1.0
+Authors@R: person("Christopher", "Mann", email = "cmann3@unl.edu",
+  role = c("aut", "cre"))
+Description: 'recon' includes several functions for quickly collecting, viewing,
+  and analyzing economic data. Included are functions that collect and search
+  data from the Federal Reserve Economic Database and Penn World Tables. 'recon'
+  also includes highly customizable plotting solutions for time series data.
+License: MIT + file LICENSE
+LazyData: TRUE
+Imports:
+    dplyr,
+    httr,
+    jsonlite,
+    lmtest,
+    lubridate,
+    magrittr,
+    sandwich,
+    scales,
+    xts,
+    zoo
+URL: http://github.com/cmann3/recon
+BugReports: http://github.com/cmann3/recon/issues
+RoxygenNote: 5.0.1
