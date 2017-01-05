@@ -1,7 +1,7 @@
 #' Scatter Plot Time Series
 #'
-#' \code{sPlot} plots two economic time series against each other, taking into
-#' consideration object attributes such as 'units' and 'title'. sPlot works
+#' \code{splot} plots two economic time series against each other, taking into
+#' consideration object attributes such as 'units' and 'title'. splot works
 #' best with data collecting functions, such as \code{fred} in the the
 #' \code{recon} package.
 #'
@@ -32,6 +32,7 @@
 #' @param colBG background color
 #' @param colGrid color of grids
 #' @param colPlot color of plot background
+#' @param colAxes color of plot axes
 #' @param lty line type. examples: 'solid', 'dotted', 'dashed'
 #' @param lwd line width
 #' @param las tick label orientation on axis
@@ -53,13 +54,13 @@
 #' @examples
 #' GDPgap <- fred('gap')
 #' cycU <- fred('cyclical')
-#' sPlot(GDPgap, cycU, reg=T)
-#' sPlot(GDPgap, cycU, by='cycle')
+#' splot(GDPgap, cycU, reg=T)
+#' splot(GDPgap, cycU, by='cycle')
 
-sPlot <- function(x, y, by=NULL, data=NULL,
+splot <- function(x, y, by=NULL, data=NULL,
                   title = NULL, xlab = NULL, ylab = NULL,
                   time = NULL, ylim = NULL, xlim = NULL,
-                  type = 'p', col = NULL, lwd = 1, lty = NULL,
+                  type = 'p', col = NULL, lwd = 1, lty = NULL, colAxes = NULL,
                   pch = NULL, cex = 1, colBG = NULL, bg = colBG,
                   colPlot = NULL, colGrid = NULL, theme = 'std',
                   reg = NULL, rlwd = lwd+1, mar = c(4, 4, 2, 1),
@@ -85,11 +86,11 @@ sPlot <- function(x, y, by=NULL, data=NULL,
     if (!is.null(attr(yTmp, 'title'))){ylab <- attr(yTmp, 'title')
     } else {ylab <- deparse(substitute(y))}
   }
-  z <- merge(xTmp, yTmp)
+  z <- na.omit(merge(xTmp, yTmp))
   if (!is.null(time)){z <- z[time]}
   if (is.null(xlim)){
-    xMin <- min(xTmp)
-    xMax <- max(xTmp)
+    xMin <- min(na.omit(xTmp))
+    xMax <- max(na.omit(xTmp))
     xlim <- c(xMin, xMax)
   }
   if (is.null(ylim)){

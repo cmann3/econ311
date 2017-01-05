@@ -1,7 +1,7 @@
 #' Plot Time Series
 #'
-#' \code{tPlot} plots economic time series data, taking into consideration
-#' object attributes such as 'units' and 'title'. tPlot works best with data
+#' \code{tplot} plots economic time series data, taking into consideration
+#' object attributes such as 'units' and 'title'. tplot works best with data
 #' collecting functions, such as \code{fred} in the the \code{recon} package.
 #'
 #' @param ... 'xts' objects to be plotted
@@ -55,9 +55,9 @@
 #' GDPgap <- fred('gap')
 #' cycU <- fred('cyclical')
 #' GDP <- fred('GDPC1')
-#' tPlot(GDPgap, cycU)
-#' tPlot(GDPgap, right = GDP)
-tPlot = function(..., right=NULL, data=NULL, time=NULL,
+#' tplot(GDPgap, cycU)
+#' tplot(GDPgap, right = GDP)
+tplot = function(..., right=NULL, data=NULL, time=NULL,
                  xlim = NULL, ylim = NULL, yRlim = NULL, ticks = c(8,5),
                  theme = 'std', col = NULL, colBG = NULL, colGrid = NULL,
                  colAxes = NULL, colPlot = NULL, colBar = NULL,
@@ -121,6 +121,7 @@ tPlot = function(..., right=NULL, data=NULL, time=NULL,
     } else {ylab <- ""}
   }
   if (!is.null(time)){z <- z[time]}
+  z <- na.omit(z)
   Dates <- as.Date(index(z))
   z <- as.matrix(z)
   if (axisRight){
@@ -213,7 +214,7 @@ tPlot = function(..., right=NULL, data=NULL, time=NULL,
   }
   # Add Legend ==============================================================
   if (!is.null(leg)){
-    legend('top', inset=c(0,-0.1), legend=leg, lty=1, col=col,
+    legend('top', inset=c(0,-0.1), legend=leg, lty=lty, col=col,
            xpd=TRUE, seg.len=1.25, cex=0.75, horiz=TRUE, lwd=2)
   }
   # Add Title ===============================================================

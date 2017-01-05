@@ -39,7 +39,7 @@ printDate <- function(x, freq, format=NULL){
   if (nchar(freq) > 1){
     freq <- tolower(substr(freq, 1, 1))
   }
-  if (freq == 'y' || freq == 'm'){z <- year(x)
+  if (freq == 'y'){z <- year(x)
   } else if (freq == 'm'){
     y <- year(x)
     m <- month(x)
@@ -69,7 +69,7 @@ printDate <- function(x, freq, format=NULL){
 #'   Close of data after conversion. Defaults to FALSE.
 #
 #' @return 'xts' object
-#' @import xts
+#' @import xts zoo lubridate
 #' @export
 #'
 #' @examples

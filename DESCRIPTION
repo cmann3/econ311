@@ -11,6 +11,7 @@ Description: 'recon' includes several functions for quickly collecting, viewing,
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
+    chron,
     dplyr,
     httr,
     jsonlite,
@@ -19,6 +20,9 @@ Imports:
     magrittr,
     sandwich,
     scales,
+    timeDate,
+    tis,
+    tseries,
     xts,
     zoo
 URL: http://github.com/cmann3/recon
