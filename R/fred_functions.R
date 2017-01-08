@@ -93,7 +93,7 @@ fred_ <- function(x, type = 'series'){
 #'   series. Calls the \code{trans} function. Accepts 'log', 'l', 'g', 'gy',
 #'   'd', 'dy', 'dv', 'pdv', 'ldv', 'i', 'r', and 's'.
 #' @param opt additional options passed to \code{trans}
-#' @param form if specified, formula used to combine the FRED series.
+#' @param form character string. If specified, formula used to combine the FRED series.
 #'   Similar to the 'formula' field on the FRED website. Each series in ...
 #'   is assigned a letter (a)-(z) sequentially to be used in the formula.
 #' @param freq time frequency to convert with which to convert the series.
@@ -115,12 +115,12 @@ fred_ <- function(x, type = 'series'){
 #'
 #' @examples
 #' Y <- fred('GDPC1', trans = 'gy') # yearly growth rate of Real GDP
-#' gap <- fred('GDPC1', 'GDPPOT', form = (a-b)/b*100, units = 'Percent')
+#' gap <- fred('GDPC1', 'GDPPOT', form = '(a-b)/b*100', units = 'Percent')
 #' urate <- fred('?unemploy rate')  # evokes search
 #'
 fred <- function(..., trans = NULL, form = NULL, freq = NULL,
                  date = NULL, opt = NULL, name = NULL, units = NULL){
-  id <- as.vector(...)
+  id <- unlist(list(...))
   special <- c('gap','cyclical','inflation')
   nicknames <- c('Y','C','I','G','NX')
   for (i in 1:length(id)){

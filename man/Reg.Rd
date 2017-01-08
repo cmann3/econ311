@@ -4,22 +4,12 @@
 \alias{Reg}
 \title{Regression}
 \usage{
-Reg(form, data = NULL, se = "auto", type = "ols",
-  na.action = na.exclude, table = TRUE)
+Reg(y, ..., data = NULL, time = NULL, test = TRUE)
 }
 \arguments{
-\item{form}{regression formula, e.g. \emph{y~x1+x2}}
-
 \item{data}{object that contains data in formula}
 
-\item{se}{type of standard error to use. For OLS regressions, defaults to
-'HC1' (robust option in STATA).}
-
-\item{type}{regression type to use. Only 'ols' supported for now}
-
-\item{na.action}{how are NAs handled. Defaults to na.exclude}
-
-\item{table}{logical. Should results be printed}
+\item{form}{regression formula, e.g. \emph{y~x1+x2}}
 }
 \value{
 'RegM' object containing regression information, including

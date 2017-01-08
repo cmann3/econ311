@@ -69,7 +69,9 @@ printDate <- function(x, freq, format=NULL){
 #'   Close of data after conversion. Defaults to FALSE.
 #
 #' @return 'xts' object
-#' @import xts zoo lubridate
+#' @importFrom zoo as.yearqtr
+#' @import xts
+#' @import zoo
 #' @export
 #'
 #' @examples

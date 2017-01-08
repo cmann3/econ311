@@ -17,7 +17,7 @@ and 'NX'.}
 series. Calls the \code{trans} function. Accepts 'log', 'l', 'g', 'gy',
 'd', 'dy', 'dv', 'pdv', 'ldv', 'i', 'r', and 's'.}
 
-\item{form}{if specified, formula used to combine the FRED series.
+\item{form}{character string. If specified, formula used to combine the FRED series.
 Similar to the 'formula' field on the FRED website. Each series in ...
 is assigned a letter (a)-(z) sequentially to be used in the formula.}
 
@@ -44,7 +44,7 @@ If \code{NULL}, the units from the FRED website are used.}
 }
 \examples{
 Y <- fred('GDPC1', trans = 'gy') # yearly growth rate of Real GDP
-gap <- fred('GDPC1', 'GDPPOT', form = (a-b)/b*100, units = 'Percent')
+gap <- fred('GDPC1', 'GDPPOT', form = '(a-b)/b*100', units = 'Percent')
 urate <- fred('?unemploy rate')  # evokes search
 
 }

@@ -10,6 +10,9 @@ Description: 'recon' includes several functions for quickly collecting, viewing,
   also includes highly customizable plotting solutions for time series data.
 License: MIT + file LICENSE
 LazyData: TRUE
+Depends:
+    xts,
+    zoo
 Imports:
     chron,
     dplyr,
@@ -22,9 +25,7 @@ Imports:
     scales,
     timeDate,
     tis,
-    tseries,
-    xts,
-    zoo
+    tseries
 URL: http://github.com/cmann3/recon
 BugReports: http://github.com/cmann3/recon/issues
 RoxygenNote: 5.0.1
