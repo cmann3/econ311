@@ -21,9 +21,12 @@ Imports:
     lmtest,
     lubridate,
     magrittr,
+    munsell,
+    plyr,
     Rcpp,
     sandwich,
     scales,
+    stringr,
     timeDate,
     tis,
     tseries
