@@ -15,6 +15,7 @@ Depends:
     zoo
 Imports:
     chron,
+    colorspace,
     dplyr,
     httr,
     jsonlite,
