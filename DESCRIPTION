@@ -27,6 +27,7 @@ Imports:
     Rcpp,
     sandwich,
     scales,
+    stringi,
     stringr,
     timeDate,
     tis,
