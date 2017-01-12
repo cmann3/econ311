@@ -18,7 +18,7 @@
 #' @examples
 #' GDPgap <- fred('gap')
 #' cycU <- fred('cyclical')
-#' Reg(GDPgap ~ cycU) # Okun's Law
+#' Reg(GDPgap, cycU) # Okun's Law
 Reg <- function(y,..., data=NULL, time=NULL, test=TRUE){
   name.y <- deparse(substitute(y))
   name.x <- deparse(substitute(c(...)))

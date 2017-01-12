@@ -23,6 +23,6 @@ Multiple types of standard error calculations are available.
 \examples{
 GDPgap <- fred('gap')
 cycU <- fred('cyclical')
-Reg(GDPgap ~ cycU) # Okun's Law
+Reg(GDPgap, cycU) # Okun's Law
 }
 

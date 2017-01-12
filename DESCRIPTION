@@ -21,6 +21,7 @@ Imports:
     lmtest,
     lubridate,
     magrittr,
+    Rcpp,
     sandwich,
     scales,
     timeDate,
