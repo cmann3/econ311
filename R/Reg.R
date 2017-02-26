@@ -146,14 +146,14 @@ Reg.test <- function(x){
   z[row,1] = "Goldfeld-Quandt Test"
   z[row,2] = "Homoskedastic"
   z[row,3] = round(as.numeric(test[[1]]),3)
-  if (round(as.numeric(test[[4]]),3) == 0){
+  if (round(as.numeric(test[[5]]),3) == 0){
     z[row,4] = "<0.01"
     z[row,5] = "***"
   } else {
-    z[row,4] = round(as.numeric(test[[4]]),3)
-    if (as.numeric(test[[4]]) < 0.01){z[row,5] = "***"
-    } else if (as.numeric(test[[4]]) < 0.05) {z[row,5] = "**"
-    } else if (as.numeric(test[[4]]) < 0.1) {z[row,5] = "*"
+    z[row,4] = round(as.numeric(test[[5]]),3)
+    if (as.numeric(test[[5]]) < 0.01){z[row,5] = "***"
+    } else if (as.numeric(test[[5]]) < 0.05) {z[row,5] = "**"
+    } else if (as.numeric(test[[5]]) < 0.1) {z[row,5] = "*"
     } else {z[row,5] = " "}
   }
   # Harvey-Collier Test
