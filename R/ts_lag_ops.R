@@ -52,7 +52,7 @@ L <- function(x, lag=1){
     k <- round(num*(numer/denom), digits = 0)
 
   }
-  z <- lag(x, k=k)
+  z <- lag(x, k=k) # change to xts::lag or something. doesn't work with dplyr (due to lag/lead)
   colnames(z) <- paste0('L', nam, '.', colnames(x))
   z
 }

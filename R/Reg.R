@@ -21,9 +21,11 @@
 #' Reg(GDPgap, cycU) # Okun's Law
 Reg <- function(y,..., data=NULL, time=NULL, test=TRUE){
   name.y <- deparse(substitute(y))
-  name.x <- deparse(substitute(c(...)))
+  name.x <- deparse(eval(substitute(alist(...))))
+
+
   gsub("[\\(\\)]", "", regmatches(name.x, gregexpr("\\(.*?\\)",name.x))[[1]]) %>%
-    strsplit(",") %>% unlist -> name.x
+    strsplit(",") %>% unlist %>% gsub(" ", "", .) -> name.x
   # Merge Data into a DF is not already
   if (is.null(data)){
     X <- list(...)
