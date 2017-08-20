@@ -1,38 +1,44 @@
-Package: recon
+Package: econ311
 Type: Package
-Title: Useful Functions for Economists
+Title: Functions for Intermediate Macroeconomics at UNL
 Version: 0.1.0
-Authors@R: person("Christopher", "Mann", email = "cmann3@unl.edu",
+Author: person("Christopher", "Mann", email = "cmann3@unl.edu",
   role = c("aut", "cre"))
-Description: 'recon' includes several functions for quickly collecting, viewing,
-  and analyzing economic data. Included are functions that collect and search
-  data from the Federal Reserve Economic Database and Penn World Tables. 'recon'
-  also includes highly customizable plotting solutions for time series data.
+Maintainer: Christopher Mann <cmann3@unl.edu>
+Description: 'econ311' includes macroeconomic data from the Federal Reserve and 
+  Penn World Tables. It also includes functions that are useful for plotting and
+  analyzing macroeconomic time series.
 License: MIT + file LICENSE
+Encoding: UTF-8
 LazyData: TRUE
 Depends:
     xts,
-    zoo
+    zoo,
+    dplyr,
+    magrittr,
+    tidyr,
+    lubridate,
+    ggplot2,
+    tibble,
+    stringr
 Imports:
+    jsonlite,
+    broom,
+    scales,
+    shiny,
+    httr,
+    sandwich,
+    lmtest,
     chron,
     colorspace,
-    dplyr,
-    httr,
-    jsonlite,
-    lmtest,
-    lubridate,
-    magrittr,
     munsell,
-    plyr,
-    RColorBrewer,
-    Rcpp,
-    sandwich,
-    scales,
     stringi,
-    stringr,
     timeDate,
     tis,
-    tseries
-URL: http://github.com/cmann3/recon
-BugReports: http://github.com/cmann3/recon/issues
-RoxygenNote: 5.0.1
+    tseries,
+    plyr,
+    RColorBrewer,
+    Rcpp
+URL: http://github.com/cmann3/econ311
+BugReports: http://github.com/cmann3/econ311/issues
+RoxygenNote: 6.0.1
