@@ -110,7 +110,7 @@ tplot <- function(x, ..., data, nber=FALSE, xlim=c(NA,NA), ylim=c(NA,NA),
   min_x <- min(data[[x_name]])
   max_x <- max(data[[x_name]])
   X <- data[,c(x_name,y_names)]
-  X <- suppressWarnings(gather(X, "Variable", "Value", y_names))
+  X <- suppressWarnings(gather(X, "Variable", "Value", eval(y_names)))
   colnames(X)[which(colnames(X)==x_name)] <- 'Date'
   recessions <- read.table(textConnection(
     "Peak, Trough
