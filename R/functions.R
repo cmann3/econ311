@@ -90,6 +90,7 @@ fred <- function(..., names=NULL, rm=TRUE, log=NULL, as_xts=FALSE){
 #' @param nber_color character describing the color of the nber bars.
 #' @param size width of the lines to be plotted.
 #' @param colors a character vector that describes the color of the lines to be used. Accepts name or hexadecimal value.
+#' @param legend a character vector of length equal to number of y variables describing names of legend entries
 #'
 #' @return a 'gg' object
 #' @import shiny
@@ -103,7 +104,7 @@ fred <- function(..., names=NULL, rm=TRUE, log=NULL, as_xts=FALSE){
 tplot <- function(x, ..., data, nber=FALSE, xlim=c(NA,NA), ylim=c(NA,NA),
                   xlab=deparse(substitute(x)), ylab='auto',
                   main=NULL, sub=NULL, nber_color='pink',
-                  size=1, colors=NULL, iplot=FALSE){
+                  size=1, colors=NULL, iplot=FALSE, legend='auto'){
   y <- eval(substitute(alist(...)))
   y_names <- paste(y)
   x_name <- deparse(substitute(x))
@@ -154,13 +155,23 @@ tplot <- function(x, ..., data, nber=FALSE, xlim=c(NA,NA), ylim=c(NA,NA),
                       aes(xmin=Peak, xmax=Trough, ymin=-Inf, ymax=Inf),
                       fill=nber_color, alpha=0.5)
   } else {nber <- NULL}
-  if (!is.null(colors)){
-    col <- scale_color_manual(values=colors)
-  } else {col <- NULL}
   if (ylab == 'auto'){
     if (length(y) > 1){ylab <- 'Value'
     } else {ylab <- y_names[1]}
   }
+  if (legend[1] == 'auto'){
+    legend <- sort(y_names)
+  } else {
+    leg1 <- sort(y_names)
+    leg2 <- character(length(y_names))
+    for (i in 1:length(y_names)){
+      leg2[which(leg1==y_names[i])] <- legend[i]
+    }
+    legend <- leg2
+  }
+  if (!is.null(colors)){
+    col <- scale_color_manual(labels=legend, values=colors)
+  } else {col <- scale_color_manual(labels=legend, values=hue_pal()(length(y_names)))}
   if (iplot){
     Z <- shinyApp(
       ui <- fluidPage(
