@@ -32,13 +32,15 @@ Imports:
     chron,
     colorspace,
     munsell,
+    reshape2,
     stringi,
     timeDate,
     tis,
     tseries,
     plyr,
     RColorBrewer,
-    Rcpp
+    Rcpp,
+    xtable
 URL: http://github.com/cmann3/econ311
 BugReports: http://github.com/cmann3/econ311/issues
 RoxygenNote: 6.0.1
